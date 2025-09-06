@@ -58,7 +58,7 @@ const DesignSystem = () => {
           <span>02 </span>Typography
         </h2>
         <div className='flex'>
-          <div style={{ flexBasis: '100%' }}>
+          <div className='flow' style={{ flexBasis: '100%' }}>
             <div>
               <p className='text-accent'>
                 Heading 1 - Bellefair Regular - 150px
@@ -96,7 +96,10 @@ const DesignSystem = () => {
             </div>
           </div>
 
-          <div style={{ flexBasis: '100%' }}>
+          <div
+            className='flow'
+            style={{ flexBasis: '100%', ...{ ['--flow-space']: '2rem' } }}
+          >
             <div>
               <p className='text-accent'>
                 Subheading 1 - Bellefair Regular - 28px
