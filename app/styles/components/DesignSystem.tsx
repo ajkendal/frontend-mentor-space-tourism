@@ -139,9 +139,38 @@ const DesignSystem = () => {
                 mollis. Ut justo. Suspendisse potenti.Lorem ipsum dolor sit
                 amet, consectetuer adipiscing elit. Phasellus hendrerit.
                 Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel,
-                dapibus id, mattis vel, nisi.{' '}
+                dapibus id, mattis vel, nisi.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='flow' id='interactive-elements'>
+        <h2 className='numbered-title'>
+          <span>03</span> Interactive elements
+        </h2>
+
+        {/** navigation */}
+        <div></div>
+
+        <div className='flex'>
+          <div style={{ marginTop: '5rem' }}>
+            {/* explore button */}
+            <a
+              href='#'
+              className='large-button uppercase ff-serif fs-600 text-dark bg-white'
+            >
+              Explore
+            </a>
+          </div>
+
+          <div style={{ marginBottom: '50vh' }}>
+            {/* Tabs */}
+
+            {/* Dots */}
+
+            {/* Numbers */}
           </div>
         </div>
       </section>

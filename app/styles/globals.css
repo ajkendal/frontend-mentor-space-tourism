@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap');
 /* ------------------- */
-/* Reset               */
+/* Custom properties   */
 /* ------------------- */
 
 :root {
@@ -24,6 +24,10 @@
   --ff-sans-cond: 'Barlow Condensed', sans-serif;
   --ff-sans-normal: 'Barlow', sans-serif;
 }
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
 
 /* Box Sizing */
 *,
@@ -220,4 +224,17 @@ button {
   margin-right: 0.5em;
   font-weight: 700;
   color: hsl(var(--clr-white) / 0.25);
+}
+
+/* ------------------- */
+/* Compontents         */
+/* ------------------- */
+
+.large-button {
+  display: grid;
+  place-items: center;
+  padding: 0 2em;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  text-decoration: none;
 }
