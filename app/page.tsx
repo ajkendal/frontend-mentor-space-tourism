@@ -1,9 +1,9 @@
-import Image from 'next/image';
-
 export default function Home() {
   return (
-    <div>
-      <h1>HERE</h1>
+    <div className='container '>
+      <h1>Design System</h1>
+
+      <section id='colors'></section>
     </div>
   );
 }
