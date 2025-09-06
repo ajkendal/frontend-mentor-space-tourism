@@ -4,7 +4,7 @@ const DesignSystem = () => {
       <h1 className='uppercase'>Design system</h1>
 
       <section id='colors' style={{ margin: '4rem 0' }}>
-        <h2 className='uppercase'>
+        <h2 className='numbered-title'>
           <span>01</span> colors
         </h2>
         <div className='flex'>
@@ -54,7 +54,7 @@ const DesignSystem = () => {
       </section>
 
       <section id='typography' style={{ margin: '4rem 0' }}>
-        <h2>
+        <h2 className='numbered-title'>
           <span>02 </span>Typography
         </h2>
         <div className='flex'>
