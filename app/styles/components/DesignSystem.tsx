@@ -151,12 +151,30 @@ const DesignSystem = () => {
           <span>03</span> Interactive elements
         </h2>
 
-        {/** navigation */}
-        <div></div>
+        <div>
+          <nav>
+            <ul className='primary-navigation underline-indicators flex'>
+              <li className='active'>
+                <a className='uppercase text-white letter-spacing-2' href='#'>
+                  <span>01</span>Active
+                </a>
+              </li>
+              <li>
+                <a className='uppercase text-white letter-spacing-2' href='#'>
+                  <span>02</span>Hovered
+                </a>
+              </li>
+              <li>
+                <a className='uppercase text-white letter-spacing-2' href='#'>
+                  <span>03</span>Idle
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
         <div className='flex'>
           <div style={{ marginTop: '5rem' }}>
-            {/* explore button */}
             <a
               href='#'
               className='large-button uppercase ff-serif fs-600 text-dark bg-white'
@@ -165,12 +183,48 @@ const DesignSystem = () => {
             </a>
           </div>
 
-          <div style={{ marginBottom: '50vh' }}>
-            {/* Tabs */}
+          <div
+            className='flow'
+            style={{ marginBottom: '50vh', ...{ ['--flow-space']: '4rem' } }}
+          >
+            <div className='tab-list underline-indicators flex'>
+              <button
+                aria-selected='true'
+                className='uppercase ff-sans-cond text-accent bg-dark letter-spacing-2'
+              >
+                Moon
+              </button>
+              <button
+                aria-selected='false'
+                className='uppercase ff-sans-cond text-accent bg-dark letter-spacing-2'
+              >
+                Mars
+              </button>
+              <button
+                aria-selected='false'
+                className='uppercase ff-sans-cond text-accent bg-dark letter-spacing-2'
+              >
+                Europa
+              </button>
+            </div>
 
-            {/* Dots */}
+            <div className='dot-indicators flex'>
+              <button aria-selected='true'>
+                <span className='sr-only'>Slide title</span>
+              </button>
+              <button aria-selected='false'>
+                <span className='sr-only'>Slide title</span>
+              </button>
+              <button aria-selected='false'>
+                <span className='sr-only'>Slide title</span>
+              </button>
+            </div>
 
-            {/* Numbers */}
+            <div className='numbered-indicators grid'>
+              <button aria-selected='true'>1</button>
+              <button aria-selected='false'>2</button>
+              <button aria-selected='false'>3</button>
+            </div>
           </div>
         </div>
       </section>
