@@ -220,7 +220,7 @@ const DesignSystem = () => {
               </button>
             </div>
 
-            <div className='numbered-indicators flex'>
+            <div className='numbered-indicators grid'>
               <button aria-selected='true'>1</button>
               <button aria-selected='false'>2</button>
               <button aria-selected='false'>3</button>
