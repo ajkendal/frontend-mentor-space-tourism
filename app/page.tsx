@@ -1,7 +1,9 @@
+import DesignSystem from './styles/components/DesignSystem';
+
 export default function Home() {
   return (
     <div className='container '>
-      <h1>Design System</h1>
+      <DesignSystem />
 
       <section id='colors'></section>
     </div>

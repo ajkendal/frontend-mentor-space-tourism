@@ -64,6 +64,7 @@ body {
   background-color: hsl(var(--clr-dark));
   line-height: 1.5;
   min-height: 100vh;
+  font-display: swap;
 }
 
 /* make images easier to work with */
