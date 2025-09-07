@@ -1,0 +1,18 @@
+.home {
+  background-size: cover;
+  background-position: bottom center;
+  background-image: url('/static/images/home/background-home-mobile.jpg');
+}
+
+@media (min-width: 35rem) {
+  .home {
+    background-position: center center;
+    background-image: url('/static/images/home/background-home-tablet.jpg');
+  }
+}
+
+@media (min-width: 45rem) {
+  .home {
+    background-image: url('/static/images/home/background-home-desktop.jpg');
+  }
+}

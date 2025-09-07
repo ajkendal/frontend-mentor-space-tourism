@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap');
+
 /* ------------------- */
 /* Custom properties   */
 /* ------------------- */
@@ -10,12 +11,12 @@
   --clr-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -25,25 +26,45 @@
   --ff-sans-normal: 'Barlow', sans-serif;
 }
 
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
+}
+
 /* ------------------- */
 /* Reset               */
 /* ------------------- */
 
-/* Box Sizing */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Reset Margins */
+/* Reset margins */
 body,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
 p,
 figure,
 picture {
@@ -60,15 +81,20 @@ p {
   font-weight: 400;
 }
 
-/*  set up the body */
-body {
+/* set up the body */
+body,
+.page {
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
   color: hsl(var(--clr-white));
   background-color: hsl(var(--clr-dark));
   line-height: 1.5;
   min-height: 100vh;
-  font-display: swap;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  background-size: cover;
+  background-position: bottom center;
 }
 
 /* make images easier to work with */
@@ -78,11 +104,11 @@ picture {
   display: block;
 }
 
-/* make forms elements easier to work with */
+/* make form elements easier to work with */
 input,
+button,
 textarea,
-select,
-button {
+select {
   font: inherit;
 }
 
@@ -99,8 +125,10 @@ button {
 }
 
 /* ------------------- */
-/* Utility Classes     */
+/* Utility classes     */
 /* ------------------- */
+
+/* general */
 
 .flex {
   display: flex;
@@ -110,6 +138,10 @@ button {
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
+}
+
+.d-block {
+  display: block;
 }
 
 .flow > *:where(:not(:first-child)) {
@@ -122,6 +154,41 @@ button {
   max-width: 80rem;
 }
 
+.grid-container {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+}
+
+.grid-container * {
+  max-width: 50ch;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
+        1rem,
+        1fr
+      );
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -130,7 +197,7 @@ button {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  white-space: nowrap; /* added line */
   border: 0;
 }
 
@@ -220,7 +287,8 @@ button {
   text-transform: uppercase;
   letter-spacing: 4.72px;
 }
-.numbered-title > span {
+
+.numbered-title span {
   margin-right: 0.5em;
   font-weight: 700;
   color: hsl(var(--clr-white) / 0.25);
@@ -230,16 +298,15 @@ button {
 /* Compontents         */
 /* ------------------- */
 
-/* buttons */
-
 .large-button {
+  font-size: 2rem;
   position: relative;
-  display: grid;
   z-index: 1;
+  display: inline-grid;
   place-items: center;
   padding: 0 2em;
   border-radius: 50%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1;
   text-decoration: none;
 }
 
@@ -249,8 +316,8 @@ button {
   z-index: -1;
   width: 100%;
   height: 100%;
-  background-color: hsl(var(--clr-white) / 0.15);
-  border-radius: inherit;
+  background: hsl(var(--clr-white) / 0.1);
+  border-radius: 50%;
   opacity: 0;
   transition: opacity 500ms linear, transform 750ms ease-in-out;
 }
@@ -260,8 +327,6 @@ button {
   opacity: 1;
   transform: scale(1.5);
 }
-
-/* navigation */
 
 .primary-navigation {
   --gap: 8rem;
@@ -276,8 +341,8 @@ button {
 }
 
 .primary-navigation a > span {
-  margin-right: 0.5em;
   font-weight: 700;
+  margin-right: 0.5em;
 }
 
 .underline-indicators > * {
@@ -289,13 +354,13 @@ button {
 
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
-  border-bottom: 0.2rem solid hsl(var(--clr-white) / 0.5);
+  border-color: hsl(var(--clr-white) / 0.5);
 }
 
 .underline-indicators > .active,
 .underline-indicators > [aria-selected='true'] {
-  color: var(--clr-white);
-  border-bottom: 0.2rem solid hsl(var(--clr-white) / 1);
+  color: hsl(var(--clr-white) / 1);
+  border-color: hsl(var(--clr-white) / 1);
 }
 
 .tab-list {
