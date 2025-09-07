@@ -4,7 +4,7 @@ import './styles/home.css';
 
 export default function Home() {
   return (
-    <div className='home page'>
+    <div className='page home'>
       <Navigation />
       <div className='grid-container grid-container--home'>
         <div>

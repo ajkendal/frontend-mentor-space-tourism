@@ -62,29 +62,24 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+While working with `display: grid` on the `<body>` element, I ran into an issue where the grid would not expand to cover the full viewport. To resolve this, I created a `.page` class and applied it to the outer `<div>` of each page. Although it felt redundant to duplicate styles between the `body` and `.page`, this approach was the only reliable way I found to achieve full-page grid layouts in a Next.js/React environment.
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+body,
+.page {
+  font-family: var(--ff-sans-normal);
+  font-size: var(--fs-400);
+  color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-dark));
+  line-height: 1.5;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  background-size: cover;
+  background-position: bottom center;
 }
 ```
-
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉');
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ## Author
 
