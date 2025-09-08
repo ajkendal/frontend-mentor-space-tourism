@@ -53,7 +53,7 @@ const Navigation = (props: { currentPage: string }) => {
                 href='/destination'
                 className='uppercase text-white letter-spacing-2 ff-sans-cond'
               >
-                <span aria-hidden>01</span>Destination
+                <span aria-hidden='true'>01</span>Destination
               </Link>
             </li>
             <li className={props.currentPage === 'crew' ? 'active' : ''}>
