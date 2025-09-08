@@ -5,8 +5,9 @@ import './styles/home.css';
 export default function Home() {
   return (
     <div className='page home'>
-      <Navigation />
-      <div className='grid-container grid-container--home'>
+      <Navigation currentPage='/' />
+
+      <main id='main' className='grid-container grid-container--home'>
         <div>
           <h1 className='text-accent fs-500 ff-sans-cond uppercase letter-spacing-1'>
             So, you want to travel to
@@ -14,10 +15,10 @@ export default function Home() {
           </h1>
 
           <p>
-            Let’s face it; if you want to go to space, you might as well
+            Let&apos;s face it; if you want to go to space, you might as well
             genuinely go to outer space and not hover kind of on the edge of it.
-            Well sit back, and relax because we’ll give you a truly out of this
-            world experience!{' '}
+            Well sit back, and relax because we&apos;ll give you a truly out of
+            this world experience!
           </p>
         </div>
         <div>
@@ -28,7 +29,7 @@ export default function Home() {
             Explore
           </a>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

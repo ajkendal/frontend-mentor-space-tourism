@@ -4,10 +4,6 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Amanda Kendal-Brown | Frontend Mentor Space Tourism',
   description: 'Explore the universe of space tourism with Amanda Kendal-Brown',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
 };
 
 export default function RootLayout({
