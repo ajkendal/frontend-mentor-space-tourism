@@ -35,44 +35,47 @@ const Navigation = (props: { currentPage: string }) => {
           </span>
         </button>
         <nav>
-          <ul
+          <div
             data-visible={isOpen}
             id='primary-navigation'
             className='primary-navigation underline-indicators flex'
           >
-            <li className={props.currentPage === '/' ? 'active' : ''}>
-              <Link
-                href='/'
-                className='uppercase text-white letter-spacing-2 ff-sans-cond'
-              >
-                <span aria-hidden='true'>00</span>Home
-              </Link>
-            </li>
-            <li className={props.currentPage === 'destination' ? 'active' : ''}>
-              <Link
-                href='/destination'
-                className='uppercase text-white letter-spacing-2 ff-sans-cond'
-              >
-                <span aria-hidden='true'>01</span>Destination
-              </Link>
-            </li>
-            <li className={props.currentPage === 'crew' ? 'active' : ''}>
-              <Link
-                href='/crew'
-                className='uppercase text-white letter-spacing-2 ff-sans-cond'
-              >
-                <span aria-hidden='true'>02</span>Crew
-              </Link>
-            </li>
-            <li className={props.currentPage === 'technology' ? 'active' : ''}>
-              <Link
-                href='/technology'
-                className='uppercase text-white letter-spacing-2 ff-sans-cond'
-              >
-                <span aria-hidden='true'>03</span>Technology
-              </Link>
-            </li>
-          </ul>
+            <Link
+              href='/'
+              className={`uppercase text-white letter-spacing-2 ff-sans-cond ${
+                props.currentPage === '/' ? 'active' : ''
+              }`}
+            >
+              <span aria-hidden='true'>00</span>Home
+            </Link>
+
+            <Link
+              href='/destination'
+              className={`uppercase text-white letter-spacing-2 ff-sans-cond ${
+                props.currentPage === 'destination' ? 'active' : ''
+              }`}
+            >
+              <span aria-hidden='true'>01</span>Destination
+            </Link>
+
+            <Link
+              href='/crew'
+              className={`uppercase text-white letter-spacing-2 ff-sans-cond ${
+                props.currentPage === 'crew' ? 'active' : ''
+              }`}
+            >
+              <span aria-hidden='true'>02</span>Crew
+            </Link>
+
+            <Link
+              href='/technology'
+              className={`uppercase text-white letter-spacing-2 ff-sans-cond ${
+                props.currentPage === 'technology' ? 'active' : ''
+              }`}
+            >
+              <span aria-hidden='true'>03</span>Technology
+            </Link>
+          </div>
         </nav>
       </header>
     </>
