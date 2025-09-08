@@ -95,6 +95,7 @@ body,
   grid-template-rows: min-content 1fr;
   background-size: cover;
   background-position: bottom center;
+  overflow-x: hidden;
 }
 
 /* make images easier to work with */
@@ -199,6 +200,21 @@ select {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
 }
 
 /* colors */
@@ -326,23 +342,6 @@ select {
 .large-button:focus::after {
   opacity: 1;
   transform: scale(1.5);
-}
-
-.primary-navigation {
-  --gap: 8rem;
-  --underline-gap: 2rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.primary-navigation a {
-  text-decoration: none;
-}
-
-.primary-navigation a > span {
-  font-weight: 700;
-  margin-right: 0.5em;
 }
 
 .underline-indicators > * {
