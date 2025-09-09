@@ -221,9 +221,15 @@ const DesignSystem = () => {
             </div>
 
             <div className='numbered-indicators grid'>
-              <button aria-selected='true'>1</button>
-              <button aria-selected='false'>2</button>
-              <button aria-selected='false'>3</button>
+              <button aria-selected='true'>
+                1 <span className='sr-only'>Slide title</span>
+              </button>
+              <button aria-selected='false'>
+                2 <span className='sr-only'>Slide title</span>
+              </button>
+              <button aria-selected='false'>
+                3 <span className='sr-only'>Slide title</span>
+              </button>
             </div>
           </div>
         </div>

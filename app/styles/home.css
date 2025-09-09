@@ -4,14 +4,14 @@
   background-image: url('/static/images/home/background-home-mobile.jpg');
 }
 
-@media (min-width: 35rem) {
+@media (min-width: 35em) {
   .home {
     background-position: center center;
     background-image: url('/static/images/home/background-home-tablet.jpg');
   }
 }
 
-@media (min-width: 45rem) {
+@media (min-width: 45em) {
   .grid-container--home {
     padding-bottom: max(6rem, 20vh);
     align-items: end;

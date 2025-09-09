@@ -7,7 +7,11 @@ import '../styles/crew.css';
 
 const Crew = () => {
   const crewMembers = data.crew;
-  const [currentMember, setCurrentMember] = useState(crewMembers[0]);
+  const [currentMember, setCurrentMember] = useState(crewMembers[0].name);
+
+  const memberData = crewMembers.find(
+    (member) => member.name === currentMember
+  );
 
   return (
     <div className='page crew'>
@@ -18,42 +22,39 @@ const Crew = () => {
         </h1>
 
         <div className='dot-indicators flex'>
-          <button aria-selected='true'>
-            <span className='sr-only'>The commander</span>
-          </button>
-          <button aria-selected='false'>
-            <span className='sr-only'>The mission specialist</span>
-          </button>
-          <button aria-selected='false'>
-            <span className='sr-only'>The pilot</span>
-          </button>
-          <button aria-selected='false'>
-            <span className='sr-only'>The crew engineer</span>
-          </button>
+          {crewMembers.map((member) => (
+            <button
+              key={member.name}
+              aria-selected={member.name === currentMember}
+              onClick={() => setCurrentMember(member.name)}
+            >
+              <span className='sr-only'>{member.role}</span>
+            </button>
+          ))}
         </div>
 
-        <article className='crew-details flow'>
-          <header className='flow flow--space-small'>
-            <h2 className='fs-600 ff-serif uppercase'>Commander</h2>
-            <p className='fs-700 uppercase ff-serif'>Douglas Hurley</p>
-          </header>
-          <p>
-            Douglas Gerald Hurley is an American engineer, former Marine Corps
-            pilot and former NASA astronaut. He launched into space for the
-            third time as commander of Crew Dragon Demo-2.
-          </p>
-        </article>
+        {memberData && (
+          <>
+            <article className='crew-details flow'>
+              <header className='flow flow--space-small'>
+                <h2 className='fs-600 ff-serif uppercase'>{memberData.role}</h2>
+                <p className='fs-700 uppercase ff-serif'>{memberData.name}</p>
+              </header>
+              <p>{memberData.bio}</p>
+            </article>
 
-        <picture>
-          <source
-            srcSet='/static/images/crew/image-douglas-hurley.webp'
-            type='image/webp'
-          />
-          <img
-            src='/static/images/crew/image-douglas-hurley.png'
-            alt='Douglas Hurley'
-          />
-        </picture>
+            <picture>
+              <source
+                srcSet={`/static/images${memberData.images.webp}`}
+                type='image/webp'
+              />
+              <img
+                src={`/static/images${memberData.images.png}`}
+                alt={memberData.name}
+              />
+            </picture>
+          </>
+        )}
       </main>
     </div>
   );
