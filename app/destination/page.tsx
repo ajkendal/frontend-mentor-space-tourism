@@ -11,6 +11,10 @@ const Destination = () => {
     destinations[0].name
   );
 
+  const selectedData = destinations.find(
+    (dest) => dest.name === selectedDestination
+  );
+
   return (
     <div className='page destination'>
       <Navigation currentPage='destination' />
@@ -24,56 +28,57 @@ const Destination = () => {
 
         <picture>
           <source
-            srcSet='/static/images/destination/image-moon.webp'
+            srcSet={`/static/images${
+              selectedData
+                ? selectedData.images.webp
+                : '/destination/image-moon.webp'
+            }`}
             type='image/webp'
           />
-          <img src='/static/images/destination/image-moon.png' alt='The Moon' />
+          <img
+            src={`/static/images${
+              selectedData
+                ? selectedData.images.png
+                : '/destination/image-moon.png'
+            }`}
+            alt={selectedDestination}
+          />
         </picture>
 
         <div className='tab-list underline-indicators flex'>
-          <button
-            aria-selected='true'
-            className='uppercase ff-sans-cond text-accent letter-spacing-2'
-          >
-            Moon
-          </button>
-          <button
-            aria-selected='false'
-            className='uppercase ff-sans-cond text-accent letter-spacing-2'
-          >
-            Mars
-          </button>
-          <button
-            aria-selected='false'
-            className='uppercase ff-sans-cond text-accent letter-spacing-2'
-          >
-            Europa
-          </button>
-          <button
-            aria-selected='false'
-            className='uppercase ff-sans-cond text-accent letter-spacing-2'
-          >
-            Titan
-          </button>
+          {data.destinations.map((destination) => (
+            <button
+              key={destination.name}
+              aria-selected={selectedDestination === destination.name}
+              className='uppercase ff-sans-cond text-accent letter-spacing-2'
+              onClick={() => setSelectedDestination(destination.name)}
+            >
+              {destination.name}
+            </button>
+          ))}
         </div>
+
         <article className='destination-info flow'>
-          <h2 className='fs-800 ff-serif uppercase'>Moon</h2>
+          <h2 className='fs-800 ff-serif uppercase'>{selectedDestination}</h2>
 
           <p>
-            See our planet as you’ve never seen it before. A perfect relaxing
-            trip away to help regain perspective and come back refreshed. While
-            you’re there, take in some history by visiting the Luna 2 and Apollo
-            11 landing sites.
+            {selectedData
+              ? selectedData.description
+              : 'No description available.'}
           </p>
           <div className='destination-meta flex'>
             <div>
               <h3 className='text-accent fs-200 uppercase'>Avg. distance </h3>
-              <p className='ff-serif uppercase'>384,400 km</p>
+              <p className='ff-serif uppercase'>
+                {selectedData ? selectedData.distance : 'Unknown'}
+              </p>
             </div>
 
             <div>
               <h3 className='text-accent fs-200 uppercase'>Est. travel time</h3>
-              <p className='ff-serif uppercase'> 3 days</p>
+              <p className='ff-serif uppercase'>
+                {selectedData ? selectedData.travel : 'Unknown'}
+              </p>
             </div>
           </div>
         </article>

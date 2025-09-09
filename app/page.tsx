@@ -1,4 +1,5 @@
 import Navigation from './components/Navigation';
+import Link from 'next/link';
 
 import './styles/home.css';
 
@@ -22,12 +23,12 @@ export default function Home() {
           </p>
         </div>
         <div>
-          <a
-            href='#'
+          <Link
+            href='/destination'
             className='large-button uppercase ff-serif text-dark bg-white'
           >
             Explore
-          </a>
+          </Link>
         </div>
       </main>
     </div>

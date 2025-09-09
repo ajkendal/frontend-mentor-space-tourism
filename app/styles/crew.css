@@ -42,7 +42,7 @@
   color: hsl(var(--clr-white) / 0.5);
 }
 
-@media (min-width: 35rem) {
+@media (min-width: 35em) {
   .grid-container--crew {
     padding-bottom: 0;
     grid-template-areas:
@@ -53,12 +53,16 @@
   }
 }
 
-@media (min-width: 45rem) {
+@media (min-width: 45em) {
   .grid-container--crew > picture {
-    max-width: 80%;
+    max-width: 95%;
   }
 
   .grid-container--crew {
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 40rem) minmax(0, 35rem) minmax(
+        1rem,
+        1fr
+      );
     justify-items: center;
     align-content: center;
 

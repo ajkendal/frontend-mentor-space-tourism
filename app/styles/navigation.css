@@ -39,7 +39,7 @@
   display: none;
 }
 
-@media (max-width: 35rem) {
+@media (max-width: 35em) {
   .primary-navigation {
     --underline-gap: 0.5rem;
     position: fixed;

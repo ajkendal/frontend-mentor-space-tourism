@@ -1,0 +1,110 @@
+.technology {
+  background-image: url('/static/images/technology/background-technology-mobile.jpg');
+}
+
+@media (min-width: 35rem) {
+  .technology {
+    background-position: center center;
+    background-image: url('/static/images/technology/background-technology-tablet.jpg');
+  }
+}
+
+@media (min-width: 45rem) {
+  .technology {
+    background-image: url('/static/images/technology/background-technology-desktop.jpg');
+  }
+}
+
+.grid-container--technology {
+  --flow-space: 1rem;
+  padding: 0;
+  padding-bottom: 5rem;
+  grid-template-areas:
+    'title'
+    'image'
+    'tabs'
+    'content';
+}
+
+.grid-container--technology > .numbered-indicators {
+  grid-area: tabs;
+}
+
+.grid-container--technology > .technology-details {
+  grid-area: content;
+  max-width: 45ch;
+}
+
+.grid-container--technology > img {
+  grid-area: image;
+  width: 100%;
+}
+
+.numbered-indicators {
+  display: inline-grid;
+  grid-auto-flow: column;
+  column-gap: 1.5rem;
+}
+
+.technology-details h2 {
+  color: hsl(var(--clr-white) / 0.5);
+}
+
+.technology-image-landscape {
+  display: none;
+}
+
+.numbered-title {
+  padding-inline: 1rem;
+}
+
+@media (min-width: 35em) {
+  .grid-container--technology {
+    --flow-space: 1rem;
+    grid-template-areas:
+      'title'
+      'image'
+      'tabs'
+      'content';
+  }
+  .technology-image-portrait {
+    display: none;
+  }
+  .technology-image-landscape {
+    display: block;
+  }
+}
+
+@media (min-width: 45em) {
+  .grid-container--technology {
+    grid-template-columns:
+      minmax(1rem, 1fr) minmax(0, 4rem) minmax(0, 40rem) minmax(0, 35rem)
+      minmax(1rem, 1fr);
+    --flow-space: 1rem;
+    padding-bottom: 0;
+    grid-template-areas:
+      '. title title .'
+      '. tabs content image';
+
+    align-items: start;
+    justify-items: start;
+  }
+  .numbered-indicators {
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 2rem;
+  }
+  .technology-image-portrait {
+    display: block;
+  }
+  .technology-image-landscape {
+    display: none;
+  }
+  .numbered-title {
+    padding-inline: 0;
+  }
+  .technology-details,
+  .numbered-indicators {
+    margin-top: 6vh;
+  }
+}
