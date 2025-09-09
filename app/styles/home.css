@@ -12,6 +12,17 @@
 }
 
 @media (min-width: 45rem) {
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+  .grid-container--home > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container--home > *:last-child {
+    grid-column: 3;
+  }
   .home {
     background-image: url('/static/images/home/background-home-desktop.jpg');
   }
